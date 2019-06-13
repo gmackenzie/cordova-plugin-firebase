@@ -40,6 +40,14 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
         );
     }
 
+    @Override
+    public void onNewToken(String s) {
+        super.onNewToken(s);
+        Log.e("NEW_TOKEN",s);
+
+        FirebasePlugin.sendToken(s);
+    }
+
     /**
      * Called when message is received.
      *
