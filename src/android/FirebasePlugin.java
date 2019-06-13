@@ -606,8 +606,9 @@ public class FirebasePlugin extends CordovaPlugin {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
             try {
-                byte[] bytes = namespace == null ? FirebaseRemoteConfig.getInstance().getByteArray(key)
-                        : FirebaseRemoteConfig.getInstance().getByteArray(key, namespace);
+                byte[] bytes = FirebaseRemoteConfig.getInstance().getByteArray(key);
+//                byte[] bytes = namespace == null ? FirebaseRemoteConfig.getInstance().getByteArray(key)
+//                        : FirebaseRemoteConfig.getInstance().getByteArray(key, namespace);
                 JSONObject object = new JSONObject();
                 object.put("base64", Base64.encodeToString(bytes, Base64.DEFAULT));
                 object.put("array", new JSONArray(bytes));
@@ -624,9 +625,10 @@ public class FirebasePlugin extends CordovaPlugin {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
             try {
-                FirebaseRemoteConfigValue value = namespace == null
-                        ? FirebaseRemoteConfig.getInstance().getValue(key)
-                        : FirebaseRemoteConfig.getInstance().getValue(key, namespace);
+                FirebaseRemoteConfigValue value = FirebaseRemoteConfig.getInstance().getValue(key);
+//                FirebaseRemoteConfigValue value = namespace == null
+//                        ? FirebaseRemoteConfig.getInstance().getValue(key)
+//                        : FirebaseRemoteConfig.getInstance().getValue(key, namespace);
                 callbackContext.success(value.asString());
             } catch (Exception e) {
                 Crashlytics.logException(e);
@@ -680,10 +682,10 @@ public class FirebasePlugin extends CordovaPlugin {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 try {
-                    if (namespace == null)
+//                    if (namespace == null)
                         FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults));
-                    else
-                        FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults), namespace);
+//                    else
+//                        FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults), namespace);
                     callbackContext.success();
                 } catch (Exception e) {
                     Crashlytics.logException(e);
@@ -881,12 +883,12 @@ public class FirebasePlugin extends CordovaPlugin {
                         myTrace = self.traces.get(name);
                     }
 
-                    if (myTrace != null && myTrace instanceof Trace) {
-                        myTrace.incrementCounter(counterNamed);
-                        callbackContext.success();
-                    } else {
+//                    if (myTrace != null && myTrace instanceof Trace) {
+//                        myTrace.incrementCounter(counterNamed);
+//                        callbackContext.success();
+//                    } else {
                         callbackContext.error("Trace not found");
-                    }
+//                    }
                 } catch (Exception e) {
                     Crashlytics.logException(e);
                     e.printStackTrace();
