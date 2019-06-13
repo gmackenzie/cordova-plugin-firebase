@@ -55,11 +55,11 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 		<source-file src="src/android/colors.xml" target-dir="res/values" />
 
 		<framework src="src/android/build.gradle" custom="true" type="gradleReference" />
-		<framework src="com.google.android.gms:play-services-tagmanager:17.4.55" />
-		<framework src="com.google.firebase:firebase-core:17.4.55" />
-		<framework src="com.google.firebase:firebase-messaging:17.4.55" />
-		<framework src="com.google.firebase:firebase-config:17.4.55" />
-		<framework src="com.google.firebase:firebase-perf:17.4.55" />
+		<framework src="com.google.android.gms:play-services-tagmanager:16.0.0" />
+		<framework src="com.google.firebase:firebase-core:16.0.0" />
+		<framework src="com.google.firebase:firebase-messaging:16.0.0" />
+		<framework src="com.google.firebase:firebase-config:16.0.0" />
+		<framework src="com.google.firebase:firebase-perf:16.0.0" />
 	</platform>
 
 	<platform name="ios">
